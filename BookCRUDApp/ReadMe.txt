@@ -1,7 +1,8 @@
 ﻿Developed books CRUD operation with toast notifications and deployed to Azure.
 
 Code-First Approach
-Repository Pattern
+Interface IProductRepository
+Dependency Injection
 
 ASP.NET Core MVC 
 Entity Framework Core.
