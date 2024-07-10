@@ -3,6 +3,7 @@ Full CRUD operations in ASP.NET Web API using Entity Framework Core
 Code-first approach
 REST APIs
 Dependency Injection
+Async/Await Task
 
 Asp.Net Web API
 Entity Framework Core
