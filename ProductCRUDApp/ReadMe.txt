@@ -12,6 +12,7 @@ Entity Framework Core
 Sql
 
 Bootstrap
+Toast Alert
 Custom JavaScript
 
 Azure Deployment
