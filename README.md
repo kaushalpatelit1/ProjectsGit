@@ -1,3 +1,3 @@
 # ProjectsGit
 
-This is Learning Projects Repository
+This is Learning Projects Repository.
