@@ -31,3 +31,4 @@ D:\PROJECTS\ProjectsGit\USAApi\USAApi\obj\Debug\net8.0\refint\USAApi.dll
 D:\PROJECTS\ProjectsGit\USAApi\USAApi\obj\Debug\net8.0\USAApi.pdb
 D:\PROJECTS\ProjectsGit\USAApi\USAApi\obj\Debug\net8.0\USAApi.genruntimeconfig.cache
 D:\PROJECTS\ProjectsGit\USAApi\USAApi\obj\Debug\net8.0\ref\USAApi.dll
+D:\PROJECTS\ProjectsGit\USAApi\USAApi\bin\Debug\net8.0\Microsoft.AspNetCore.Mvc.Versioning.dll

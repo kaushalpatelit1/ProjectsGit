@@ -4,6 +4,7 @@ namespace USAApi.Controllers
 {
     [Route("/")]
     [ApiController] //this attribute let's asp.net core know that I am building a controller meant for an API. This adds features like automated model validation.
+    [ApiVersion("1.0")]
     public class RootController : ControllerBase
     {
         [HttpGet(Name = nameof(GetRoot))] // this explicitly tells asp.net core that it should handle the GET Verb
