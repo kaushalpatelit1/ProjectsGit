@@ -23,6 +23,12 @@ builder.Services.AddApiVersioning(opt => {
 builder.Services.AddMvc(opt =>
 {
     opt.Filters.Add<JsonExceptionFilter>();
+    opt.Filters.Add<RequireHttpsOrCloseAttribute>();
+});
+builder.Services.AddCors(opt =>
+{
+    //opt.AddPolicy("AllowMyApp", policy => policy.WithOrigins("https://example.com")); //to add cors policy with specific origins policy.
+    opt.AddPolicy("AllowMyApp", policy => policy.AllowAnyOrigin()); //to add cors policy with any origins, use for developers testing.
 });
 
 var app = builder.Build();
@@ -33,12 +39,10 @@ if(app.Environment.IsDevelopment())
     app.UseDeveloperExceptionPage();
     app.UseSwagger();
     app.UseSwaggerUI();
-
-
 }
 
-app.UseHttpsRedirection();
-
+//app.UseHttpsRedirection();
+app.UseCors("AllowMyApp");
 app.UseAuthorization();
 
 app.MapControllers();
