@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Versioning;
+using USAApi.Filters;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -17,6 +18,11 @@ builder.Services.AddApiVersioning(opt => {
     opt.AssumeDefaultVersionWhenUnspecified = true; // it will assume default version when not specified.
     opt.ReportApiVersions = true; // report api version to the browser
     opt.ApiVersionSelector = new CurrentImplementationApiVersionSelector(opt); //defines the behavior of how an API version is selected for a given request context. 
+});
+
+builder.Services.AddMvc(opt =>
+{
+    opt.Filters.Add<JsonExceptionFilter>();
 });
 
 var app = builder.Build();
