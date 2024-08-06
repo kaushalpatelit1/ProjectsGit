@@ -5,6 +5,7 @@ using USAApi.Models;
 using Microsoft.EntityFrameworkCore;
 using USAApi;
 using Microsoft.EntityFrameworkCore.Internal;
+using USAApi.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,6 +15,8 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+builder.Services.AddScoped<IRoomService, RoomService>();
 
 builder.Services.AddRouting(opt => opt.LowercaseUrls = true); // lower case urls settings in middleware
 builder.Services.AddApiVersioning(opt => {

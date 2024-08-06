@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using USAApi.Models;
+using USAApi.Services;
 
 namespace USAApi.Controllers
 {
@@ -8,10 +9,10 @@ namespace USAApi.Controllers
     [ApiController]
     public class RoomsController : ControllerBase
     {
-        private readonly HotelApiDbContext _context;
-        public RoomsController(HotelApiDbContext context)
+        private readonly IRoomService _service;
+        public RoomsController(IRoomService service)
         {
-            _context = context;
+            _service = service;
         }
         [HttpGet(Name = nameof(GetRooms))]
         public IActionResult GetRooms()
@@ -22,21 +23,12 @@ namespace USAApi.Controllers
         // GET /rooms/{roomId}
         [HttpGet("{roomId}", Name = nameof(GetRoomById))]
         [ProducesResponseType(404)]
+        [ProducesResponseType(200)]
         public async Task<ActionResult<Room>> GetRoomById(Guid roomId)
         {
-            var entity = await _context.Rooms.SingleOrDefaultAsync(x => x.Id == roomId);
-
-            if(entity == null)
-            {
-                return NotFound();
-            }
-            var resource = new Room
-            {
-                Href = Url.Link(nameof(GetRoomById), new { roomId = entity.Id }),
-                Name = entity.Name,
-                Rate = entity.Rate
-            };
-            return resource;
+            var room = await _service.GetRoomAsync(roomId);
+            if(room == null) return NotFound();
+            return Ok(room);
         }
     }
 }
