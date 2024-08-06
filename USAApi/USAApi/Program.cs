@@ -2,6 +2,9 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Versioning;
 using USAApi.Filters;
 using USAApi.Models;
+using Microsoft.EntityFrameworkCore;
+using USAApi;
+using Microsoft.EntityFrameworkCore.Internal;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -34,8 +37,16 @@ builder.Services.AddCors(opt =>
 builder.Services.Configure<HotelInfo>(
     builder.Configuration.GetSection("Info"));
 
+// Use in-memory database for quick dev and testing
+// TODO: Swap out for a real database
+builder.Services.AddDbContext<HotelApiDbContext>(options =>
+{
+    options.UseInMemoryDatabase("usadb"); // we might need to install package - Microsoft.EntityFrameworkCore.InMemory
+});
 
 var app = builder.Build();
+
+SeedDatabase();
 
 // Configure the HTTP request pipeline.
 if(app.Environment.IsDevelopment())
@@ -52,3 +63,22 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
+
+
+
+void SeedDatabase()
+{
+    using(var scope = app.Services.CreateScope())
+    {
+        var services = scope.ServiceProvider;
+        try
+        {
+            SeedData.Ininialize(services).Wait();
+        }
+        catch(Exception ex)
+        {
+            var logger = services.GetRequiredService<ILogger<Program>>();
+            logger.LogError(ex, "Error while seeding the database");
+        }
+    }
+}

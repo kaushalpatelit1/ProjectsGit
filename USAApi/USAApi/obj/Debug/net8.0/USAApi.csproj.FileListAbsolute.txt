@@ -33,3 +33,6 @@ D:\PROJECTS\ProjectsGit\USAApi\USAApi\obj\Debug\net8.0\USAApi.genruntimeconfig.c
 D:\PROJECTS\ProjectsGit\USAApi\USAApi\obj\Debug\net8.0\ref\USAApi.dll
 D:\PROJECTS\ProjectsGit\USAApi\USAApi\bin\Debug\net8.0\Microsoft.AspNetCore.Mvc.Versioning.dll
 D:\PROJECTS\ProjectsGit\USAApi\USAApi\bin\Debug\net8.0\Newtonsoft.Json.dll
+D:\PROJECTS\ProjectsGit\USAApi\USAApi\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.dll
+D:\PROJECTS\ProjectsGit\USAApi\USAApi\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+D:\PROJECTS\ProjectsGit\USAApi\USAApi\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.InMemory.dll
