@@ -6,6 +6,7 @@ using Microsoft.EntityFrameworkCore;
 using USAApi;
 using Microsoft.EntityFrameworkCore.Internal;
 using USAApi.Services;
+using USAApi.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -46,6 +47,9 @@ builder.Services.AddDbContext<HotelApiDbContext>(options =>
 {
     options.UseInMemoryDatabase("usadb"); // we might need to install package - Microsoft.EntityFrameworkCore.InMemory
 });
+
+builder.Services.AddAutoMapper(opt => opt.AddProfile<MappingProfile>());
+
 
 var app = builder.Build();
 

@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "1F8t9Ub++Ts=",
+  "dgSpecHash": "FINgVGW9xqw=",
   "success": true,
   "projectFilePath": "D:\\PROJECTS\\ProjectsGit\\USAApi\\USAApi\\USAApi.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\kaush\\.nuget\\packages\\automapper\\13.0.1\\automapper.13.0.1.nupkg.sha512",
+    "C:\\Users\\kaush\\.nuget\\packages\\automapper.collection\\10.0.0\\automapper.collection.10.0.0.nupkg.sha512",
     "C:\\Users\\kaush\\.nuget\\packages\\microsoft.aspnetcore.mvc.versioning\\5.1.0\\microsoft.aspnetcore.mvc.versioning.5.1.0.nupkg.sha512",
     "C:\\Users\\kaush\\.nuget\\packages\\microsoft.entityframeworkcore\\8.0.7\\microsoft.entityframeworkcore.8.0.7.nupkg.sha512",
     "C:\\Users\\kaush\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\8.0.7\\microsoft.entityframeworkcore.abstractions.8.0.7.nupkg.sha512",

@@ -36,3 +36,5 @@ D:\PROJECTS\ProjectsGit\USAApi\USAApi\bin\Debug\net8.0\Newtonsoft.Json.dll
 D:\PROJECTS\ProjectsGit\USAApi\USAApi\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.dll
 D:\PROJECTS\ProjectsGit\USAApi\USAApi\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Abstractions.dll
 D:\PROJECTS\ProjectsGit\USAApi\USAApi\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.InMemory.dll
+D:\PROJECTS\ProjectsGit\USAApi\USAApi\bin\Debug\net8.0\AutoMapper.dll
+D:\PROJECTS\ProjectsGit\USAApi\USAApi\bin\Debug\net8.0\AutoMapper.Collection.dll
