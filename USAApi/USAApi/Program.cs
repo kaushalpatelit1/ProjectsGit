@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Versioning;
 using USAApi.Filters;
+using USAApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -30,6 +31,9 @@ builder.Services.AddCors(opt =>
     //opt.AddPolicy("AllowMyApp", policy => policy.WithOrigins("https://example.com")); //to add cors policy with specific origins policy.
     opt.AddPolicy("AllowMyApp", policy => policy.AllowAnyOrigin()); //to add cors policy with any origins, use for developers testing.
 });
+builder.Services.Configure<HotelInfo>(
+    builder.Configuration.GetSection("Info"));
+
 
 var app = builder.Build();
 
