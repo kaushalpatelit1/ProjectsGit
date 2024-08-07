@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using USAApi.Models;
 
 namespace USAApi.Controllers
 {
@@ -8,19 +9,15 @@ namespace USAApi.Controllers
     public class RootController : ControllerBase
     {
         [HttpGet(Name = nameof(GetRoot))] // this explicitly tells asp.net core that it should handle the GET Verb
+        [ProducesResponseType(200)]
         public IActionResult GetRoot()
         {
-            var response = new
+
+            var response = new RootResponse
             {
-                href = Url.Link(nameof(GetRoot), null),
-                rooms = new
-                {
-                    href = Url.Link(nameof(RoomsController.GetRooms), null)
-                },
-                info = new
-                {
-                    href = Url.Link(nameof(InfoController.GetInfo), null)
-                }
+                Self = Link.To(nameof(GetRoot)),
+                Rooms = Link.To(nameof(RoomsController.GetRooms)),
+                Info = Link.To(nameof(InfoController.GetInfo)),
             };
             return Ok(response);
         }

@@ -32,6 +32,7 @@ builder.Services.AddMvc(opt =>
 {
     opt.Filters.Add<JsonExceptionFilter>();
     opt.Filters.Add<RequireHttpsOrCloseAttribute>();
+    opt.Filters.Add<LinkRewritingFilter>();
 });
 builder.Services.AddCors(opt =>
 {
