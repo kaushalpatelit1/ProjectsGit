@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using AutoMapper.QueryableExtensions;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Security.AccessControl;
@@ -15,6 +16,13 @@ namespace USAApi.Services
             _context = context;
             _mapper = mapper;
         }
+
+        public async Task<IEnumerable<Room>> GetAllRoomsAsync()
+        {
+            var query = _context.Rooms.ProjectTo<Room>(_mapper.ConfigurationProvider);
+            return await query.ToArrayAsync();
+        }
+
         public async Task<Room> GetRoomAsync(Guid roomId)
         {
             var entity = await _context.Rooms.SingleOrDefaultAsync(x => x.Id == roomId);
@@ -25,5 +33,7 @@ namespace USAApi.Services
             }
             return _mapper.Map<Room>(entity);
         }
+
+
     }
 }

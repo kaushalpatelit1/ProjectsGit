@@ -17,6 +17,17 @@ namespace USAApi.Controllers
             };
         }
 
+        public static Link ToCollection(string routeName, object routeValues = null)
+        {
+            return new Link
+            {
+                RouteName = routeName,
+                RouteValues = routeValues,
+                Method = GetMethod,
+                Relations = new[] {"collection"}
+            };
+        }
+
         [JsonProperty(Order =-4)] //setting the serialize order
         public string Href { get; set; }
         [JsonProperty(Order = -3, 

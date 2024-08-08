@@ -14,10 +14,16 @@ namespace USAApi.Controllers
         {
             _service = service;
         }
-        [HttpGet(Name = nameof(GetRooms))]
-        public IActionResult GetRooms()
+        [HttpGet(Name = nameof(GetAllRooms))]
+        public async Task<ActionResult<Collection<Room>>> GetAllRooms()
         {
-            throw new NotImplementedException();
+            var rooms = await _service.GetAllRoomsAsync();
+            var collection = new Collection<Room>
+            {
+                Self = Link.ToCollection(nameof(GetAllRooms)),
+                Value = rooms.ToArray()
+            };
+            return collection;
         }
 
         // GET /rooms/{roomId}

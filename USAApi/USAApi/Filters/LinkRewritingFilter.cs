@@ -65,7 +65,7 @@ namespace USAApi.Filters
         }
         private static void RewriteLinksInArrays(IEnumerable<PropertyInfo> arrayProperties, object model, LinkRewriter rewriter)
         {
-            foreach(var arrayProperty in arrayProperties)
+            foreach(var arrayProperty in arrayProperties.Where(p=>p.CanWrite && p.CanRead))
             {
                 var array = arrayProperty.GetValue(model) as Array ?? new Array[0];
                 foreach(var element in array)
